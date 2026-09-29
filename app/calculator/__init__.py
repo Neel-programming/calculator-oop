@@ -22,6 +22,7 @@ def calculator():
     while True:
         user_input = input(">>> ").strip()
 
+        # LBYL: check for empty input before doing anything with it
         if not user_input:
             continue
 
@@ -43,7 +44,9 @@ def calculator():
                     print(entry)
             continue
 
-        try:        # EAFP: attempt the conversion and handle failure if it occurs  operation, first, second = user_input.split()
+        # EAFP: attempt the conversion and handle failure if it occurs
+        try:
+            operation, first, second = user_input.split()
             a, b = float(first), float(second)
         except ValueError:
             print("Invalid input. Format: <operation> <a> <b>. Type 'help' for commands.")
