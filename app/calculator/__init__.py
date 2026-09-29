@@ -43,8 +43,7 @@ def calculator():
                     print(entry)
             continue
 
-        try:
-            operation, first, second = user_input.split()
+        try:        # EAFP: attempt the conversion and handle failure if it occurs  operation, first, second = user_input.split()
             a, b = float(first), float(second)
         except ValueError:
             print("Invalid input. Format: <operation> <a> <b>. Type 'help' for commands.")

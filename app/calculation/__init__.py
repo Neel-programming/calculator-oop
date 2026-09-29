@@ -75,6 +75,7 @@ class CalculationFactory:
     @classmethod
     def create(cls, operation: str, a: float, b: float) -> Calculation:
         """Return a Calculation for the given operation name."""
+                # LBYL: check the operation exists before creating the calculation
         if operation not in cls._calculations:
             raise ValueError(f"Unknown operation '{operation}'.")
         return cls._calculations[operation](a, b)
